@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        background-color: whitesmoke;
+        width: 50%;
+        margin-top: 50px;
+        width: 300px;
+        box-shadow: 0px 0px 20px 10px rgb(233, 231, 248);
+        padding: 50px;
+        border-radius: 30px;
+        text-align: center;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid darkslateblue;
+        width: 100%;
+        margin-bottom: 20px;
+        outline: none;
+        padding: 10px;
+        text-align: center;
+        font-size: 25px;
+      }
+      button {
+        background-color: darkslateblue;
+        width: 100%;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        font-size: 22px;
+        padding-bottom: 10px;
+        cursor: pointer;
+      }
+      #result-div {
+        background-color: rgb(229, 227, 241);
+        box-shadow: 0px 0px 20px 10px rgb(233, 231, 248);
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 20px;
+        padding: 10px;
+        text-align: center;
+        font-size: 25px;
+        color: darkslateblue;
+        display: none;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <input type="text" id="weight" placeholder="الوزن" class="input" />
+
+      <input type="text" id="height" placeholder="الطول" class="input" />
+      <button id="btn">إحسب</button>
+      <p id="result-div"></p>
+      <p id="result"></p>
+    </div>
+  </body>
+  <script>
+    const resDiv = document.getElementById("result-div");
+
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("height").value;
+    document.getElementById("btn").addEventListener("click", function () {
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      var meterHeight = height * 0.01;
+      var bmi = weight / (meterHeight * meterHeight);
+      document.getElementById("result-div").style.display = "block";
+
+      document.getElementById("result-div").innerHTML = bmi;
+
+      if (bmi < 18) {
+        document.getElementById("result").innerHTML = "نحافة";
+      } else if (bmi >= 18 && bmi <= 24.9) {
+        document.getElementById("result").innerHTML = "وزن مثالي";
+      } else if (bmi >= 25 && bmi <= 29.9) {
+        document.getElementById("result").innerHTML = "وزن زائد";
+      } else if (bmi >= 30 && bmi <= 34.9) {
+        document.getElementById("result").innerHTML = "سمنة درجة اولى";
+      } else if (bmi >= 35 && bmi <= 39.9) {
+        document.getElementById("result").innerHTML = "سمنة درجة ثانية";
+      } else {
+        document.getElementById("result").innerHTML = "سمنة خطيرة";
+      }
+    });
+
+  </script>
+</html>
