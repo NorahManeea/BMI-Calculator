@@ -78,25 +78,32 @@
     document.getElementById("btn").addEventListener("click", function () {
       var weight = document.getElementById("weight").value;
       var height = document.getElementById("height").value;
+      //To convert CM TO M 
       var meterHeight = height * 0.01;
+      //BMI Formula
       var bmi = weight / (meterHeight * meterHeight);
+
+      //To Display Div 
       document.getElementById("result-div").style.display = "block";
 
       document.getElementById("result-div").innerHTML = bmi;
+      var bmiCategory = "نحافة"
 
       if (bmi < 18) {
-        document.getElementById("result").innerHTML = "نحافة";
+        bmiCategory;
       } else if (bmi >= 18 && bmi <= 24.9) {
-        document.getElementById("result").innerHTML = "وزن مثالي";
+        bmiCategory = "وزن مثالي";
       } else if (bmi >= 25 && bmi <= 29.9) {
-        document.getElementById("result").innerHTML = "وزن زائد";
+        bmiCategory = "وزن زائد";
       } else if (bmi >= 30 && bmi <= 34.9) {
-        document.getElementById("result").innerHTML = "سمنة درجة اولى";
+        bmiCategory = "سمنة درجة اولى";
       } else if (bmi >= 35 && bmi <= 39.9) {
-        document.getElementById("result").innerHTML = "سمنة درجة ثانية";
+        bmiCategory = "سمنة درجة ثانية";
       } else {
-        document.getElementById("result").innerHTML = "سمنة خطيرة";
+        bmiCategory = "سمنة خطيرة";
       }
+
+      document.getElementById("result").innerHTML = bmiCategory
     });
 
   </script>
